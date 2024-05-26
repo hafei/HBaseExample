@@ -13,7 +13,7 @@
 
 
 ```shell
-docker run -d --name hbase-standalone -h hbase-standalone -p 16010:16010 -p 16020:16020 -p 16030:16030 -p 2181:2181 mckdev/hbase
+docker run -d --name hbase-standalone -h hbase-standalone -p 16000:16000 -p 16010:16010 -p 16020:16020 -p 16030:16030 -p 2181:2181 mckdev/hbase
 ```
 
 
