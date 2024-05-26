@@ -1,0 +1,43 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+//    implementation 'org.apache.hbase:hbase-client:1.1.12'
+//    implementation 'org.apache.hadoop:hadoop-common:2.10.1'
+    implementation 'org.apache.hbase:hbase-client:2.4.9'
+    implementation 'org.apache.hadoop:hadoop-common:3.3.1'
+    implementation 'org.apache.hadoop:hadoop-hdfs:3.3.1'
+    implementation 'org.apache.hadoop:hadoop-mapreduce-client-core:3.3.1'
+    implementation 'org.apache.hadoop:hadoop-yarn-api:3.3.1'
+    implementation 'org.apache.hadoop:hadoop-yarn-client:3.3.1'
+    implementation 'log4j:log4j:1.2.17'
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'com.example.Main'
+    }
+}
+//
+//compileJava.options.compilerArgs += [
+//        '--add-opens', 'java.base/java.nio=ALL-UNNAMED'
+//]
+java {
+    sourceSets.all {
+        tasks.compileJava.options.compilerArgs += ['--add-opens', 'java.base/java.nio=ALL-UNNAMED']
+    }
+}
